@@ -14,14 +14,16 @@ listen((msg, sender, sendResponse) => {
   sendResponse({ response: "success" });
 });
 
+let initialState = {
+  alerter: false,
+};
 function main() {
-  initializeStore();
+  initializeStore(initialState);
   runStateFeature();
 }
 
 async function runStateFeature() {
   let feature = await getFeature();
-  console.log(feature);
   if (feature) {
     if (feature.alerter) {
       alerter();

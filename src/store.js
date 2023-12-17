@@ -1,9 +1,6 @@
 import { notifyOthers } from "./notifier";
 
-export async function initializeStore() {
-  let initialState = {
-    alerter: false,
-  };
+export async function initializeStore(initialState) {
   const { feature } = await chrome.storage.sync.get(["feature"]);
   if (!feature) {
     setFeature(initialState);

@@ -1,21 +1,47 @@
-# <img src="public/icons/icon_48.png" width="45" align="left"> .
+# It is primary chrome extension template
 
-My Chrome Extension
+## How to use
 
-## Features
+- first clone this repository and install npm dependencies
 
-- Feature 1
-- Feature 2
+  ```bash
+  git clone https://github.com/EV-OD/extension-primary-template
+  cd extension-primary-template
+  npm install
+  npm run watch
+  ```
 
-## Install
+- add this code with own data-feature and label in popup.html
+  ```html
+  <label class="cursor-pointer label">
+    <span class="label-text">Label here</span>
+    <input
+      data-feature="data-feature"
+      type="checkbox"
+      class="toggle toggle-success feature-ui"
+      checked
+    />
+  </label>
+  ```
+- Now update `contentScript.js`
 
-[**Chrome** extension]()
+  ```js
+  let initialState = {
+    propertyName: true,
+  };
+  ```
 
-## Contribution
+  #### Here propertyName is `data-feature` and it's value should be `true` or `false`
 
-Suggestions and pull requests are welcomed!.
-
----
-
-This project was bootstrapped with [Chrome Extension CLI](https://github.com/dutiyesh/chrome-extension-cli)
-
+- Again update `contentScript.js`
+  ```js
+  async function runStateFeature() {
+    let feature = await getFeature();
+    if (feature) {
+      if (feature.propertyName) {
+        youFunction();
+      }
+    }
+  }
+  ```
+  #### Here `youFunction` is a function which should be called when `propertyName` is `true`

@@ -3,6 +3,7 @@
 import { sendMessageFromContent, listen } from "./notifier";
 import { getFeature, initializeStore } from "./store";
 import removeShorts from "./utils/shorts";
+import removeComments from "./utils/comments";
 
 window.onload = () => {
   main();
@@ -24,9 +25,10 @@ let initialState = {
     website: "youtube",
     refreshOnOff: true,
   },
-  "youtube-comment": {
+  "youtube-comments": {
     enabled: false,
     website: "youtube",
+    refreshOnOff: true,
   },
 };
 
@@ -58,8 +60,8 @@ async function runStateFeature() {
     if (feature["youtube-shorts"].enabled) {
       removeShorts(feature);
     }
-    if (feature["youtube-comment"].enabled) {
-      alert("comment");
+    if (feature["youtube-comments"].enabled) {
+      removeComments(feature);
     }
   }
 }

@@ -4,6 +4,7 @@ import { sendMessageFromContent, listen } from "./notifier";
 import { getFeature, initializeStore } from "./store";
 import removeShorts from "./utils/shorts";
 import removeComments from "./utils/comments";
+import redirectToSubscription from "./utils/redirectToSubscription";
 
 window.onload = () => {
   main();
@@ -26,6 +27,11 @@ let initialState = {
     refreshOnOff: true,
   },
   "youtube-comments": {
+    enabled: false,
+    website: "youtube",
+    refreshOnOff: true,
+  },
+  "youtube-redirect-to-subscription": {
     enabled: false,
     website: "youtube",
     refreshOnOff: true,
@@ -62,6 +68,9 @@ async function runStateFeature() {
     }
     if (feature["youtube-comments"].enabled) {
       removeComments(feature);
+    }
+    if (feature["youtube-redirect-to-subscription"].enabled) {
+      redirectToSubscription(feature);
     }
   }
 }

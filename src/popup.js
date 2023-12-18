@@ -24,4 +24,13 @@ async function main() {
   });
 }
 
+
+document.addEventListener("DOMContentLoaded", function () {
+  const darkModeToggle = document.getElementById("toggleDarkTheme");
+
+  darkModeToggle.addEventListener("click", function () {
+    document.body.classList.toggle("dark-theme");
+  });
+});
+
 main();

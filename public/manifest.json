@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": ".",
+  "name": "unbind3",
   "version": "0.1.0",
   "description": "My Chrome Extension",
   "icons": {
@@ -18,7 +18,8 @@
   },
   "permissions": [
     "storage",
-    "history"
+    "history",
+    "tabs"
   ],
   "content_scripts": [
     {

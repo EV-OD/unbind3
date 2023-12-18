@@ -1,18 +1,20 @@
 async function sendMessageFromPopup(msg, type) {
   return new Promise((resolve) => {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      const tab = tabs[0];
-      chrome.tabs.sendMessage(
-        tab.id,
-        {
-          msg: msg,
-          type: type ? type : "Message",
-        },
-        () => {
-          resolve();
-        }
-      );
-    });
+    if (chrome.tabs) {
+      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        const tab = tabs[0];
+        chrome.tabs.sendMessage(
+          tab.id,
+          {
+            msg: msg,
+            type: type ? type : "Message",
+          },
+          () => {
+            resolve();
+          }
+        );
+      });
+    }
   });
 }
 

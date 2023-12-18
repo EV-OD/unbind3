@@ -10,11 +10,9 @@ window.onload = () => {
   main();
 };
 listen((msg, sender, sendResponse) => {
-  console.log(msg);
   if (msg.type == "Notify") {
     runStateFeature();
   } else if (msg.type == "Refresh") {
-    console.log("refresh");
     refresh();
   }
   sendResponse({ response: "success" });
@@ -62,7 +60,6 @@ function main() {
 async function runStateFeature() {
   let feature = await getFeature();
   if (feature) {
-    console.log(feature);
     if (feature["youtube-shorts"].enabled) {
       removeShorts(feature);
     }

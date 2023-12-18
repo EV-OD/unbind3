@@ -64,10 +64,6 @@ async function runStateFeature() {
   }
 }
 
-function disableShorts() {
-  alert("shorts");
-}
-
 function refresh() {
   window.location.reload();
 }

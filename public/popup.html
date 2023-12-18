@@ -6,33 +6,38 @@
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <h1>UnBind</h1>
     <div class="app w-full min-w-[250px]">
       <div class="youtube flex flex-col w-full">
-        <label class="cursor-pointer label">
+        <div class="line">
+          <h1>UnBind </h1>
+          <div id="toggleDarkTheme">
+            <img src="./night-mode.png" alt="night-mode">
+          </div>
+        </div>
+        <label class="cursor-pointer">
           <span class="label-text">Disable shorts</span>
           <input
             data-feature="youtube-shorts"
             type="checkbox"
-            class="toggle toggle-success feature-ui"
+            class="toggle toggle-primary feature-ui"
             checked
           />
         </label>
-        <label class="cursor-pointer label">
+        <label class="cursor-pointer">
           <span class="label-text">Disable comment</span>
           <input
             data-feature="youtube-comments"
             type="checkbox"
-            class="toggle toggle-success feature-ui"
+            class="toggle toggle-primary feature-ui"
             checked
           />
         </label>
-        <label class="cursor-pointer label">
+        <label class="cursor-pointer">
           <span class="label-text">Redirect to Subscription</span>
           <input
             data-feature="youtube-redirect-to-subscription"
             type="checkbox"
-            class="toggle toggle-success feature-ui"
+            class="toggle toggle-primary feature-ui"
             checked
           />
         </label>
